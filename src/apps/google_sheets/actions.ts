@@ -4,7 +4,7 @@ export default {
     "version": "0.0.1",
     "functions": {
         "getSpreadsheet": {
-            "info": {
+            "meta": {
                 "name": "Fetch Spreadsheet",
                 "description": "Fetch a spreadsheet by its ID.",
                 "type": "ACTION",
@@ -23,7 +23,7 @@ export default {
             }
         },
         "getAllSheets": {
-            "info": {
+            "meta": {
                 "name": "Get all spreadsheets from Google Drive.",
                 "description": "",
                 "type": "ACTION",

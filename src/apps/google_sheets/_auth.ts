@@ -5,8 +5,14 @@ export default {
     "type": "AUTHENTICATION",
     "version": "0.0.1",
     "functions": {
-        "authorization": {
-            "info": {
+        "auth": {
+            "type": "CODE",
+            "run": (token: Object) => {
+                console.log(token);
+            }
+        },
+        "authorizeApp": {
+            "meta": {
                 "name": "Google Authorization",
                 "description": "",
                 "params": [
@@ -22,11 +28,11 @@ export default {
                 
             },
             "response": {
-
+                
             }
         },
-        "auth_token": {
-            "info": {
+        "getAuthToken": {
+            "meta": {
                 "name": "Auth token request",
                 "description": "",
                 params: [
@@ -35,8 +41,8 @@ export default {
             },
             "method": "POST"
         },
-        "refresh_token": {
-            "info": {
+        "getRefreshToken": {
+            "meta": {
                 "name": "Refresh auth token",
                 "description": "",
                 params: [

@@ -5,13 +5,16 @@ export function fxRouter(
     req: Request, 
     res: Response
 ) {
-    console.log(req.params)
-    // check nosql table for data
-    // if integration_type === 'api'
-    //    execute api function
-    runner({
-
-    })
-
-    res.send('Server');
+    let run = runner(req.params.app, req.params.function);
+    if (run) {
+        res.status(200).send({
+            code: 200,
+            msg: "Successfully executed the function."
+        });
+    } else {
+        res.status(401).send({
+            code: 401,
+            msg: "Bad request. Failed to execute function."
+        });
+    }
 };

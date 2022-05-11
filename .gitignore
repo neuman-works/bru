@@ -1,3 +1,6 @@
+# Database config
+db_config/
+
 # Logs
 logs
 *.log

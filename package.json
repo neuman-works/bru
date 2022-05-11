@@ -37,6 +37,7 @@
     "typescript": "^4.6.3"
   },
   "_moduleAliases": {
-    "@src": "dist/"
+    "@src": "dist/",
+    "@db": "db/"
   }
 }
