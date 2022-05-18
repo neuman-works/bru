@@ -12,9 +12,8 @@ const runner = (app: String, fn: String) => {
     if (func.meta.auth_required) {
         let user = get_user_app_auth();
 
-        if (!user.authorized) {
-            return false; // TODO: send app-not-authorized error to user
-        }
+        // TODO: send app-not-authorized error to user
+        if (!user.authorized) { return false; }
 
         // run the auth function
         auth.functions.auth.run(user.token);
