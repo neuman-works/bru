@@ -1,8 +1,9 @@
 import params from './_params'
+import { EAppType as type } from '@src/_types'
 
 
 export default {
-    "type": "AUTHENTICATION",
+    "type": type.AUTHENTICATION,
     "version": "0.0.1",
     "functions": {
         "auth": {

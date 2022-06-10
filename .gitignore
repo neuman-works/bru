@@ -1,5 +1,6 @@
 # Database config
 db_config/
+test/
 
 # Logs
 logs

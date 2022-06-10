@@ -3,7 +3,7 @@ import triggers from './triggers';
 
 
 export default {
-    "meta": {
+    meta: {
         "name": "Google Sheets",
         "app_name": "google_sheets",
         "developer": "Google",
@@ -16,13 +16,28 @@ export default {
         "actions": Object.keys(actions.functions),
         "triggers": Object.keys(triggers.functions),
     },
-    "endpoints": {
+    requires: [{
+        name: "API_KEY",
+        type: "",
+        description: "",
+        source: ""
+    }, {
+        name: "DEVELOPER_KEY",
+        type: "",
+        description: "",
+        source: ""
+    }],
+    endpoints: {
         "auth": "https://accounts.google.com/o/oauth2/v2/auth",
         "api": "https://sheets.googleapis.com/v4/",
         "token": "https://oauth2.googleapis.com/token"
     },
-    "external_docs": {
+    docs: {
         "url": "https://developers.google.com/sheets/"
     },
-    "tags": ["google", "google sheets", "spreadsheets"]
+    tags: [
+        "google", 
+        "google sheets", 
+        "spreadsheets"
+    ]
 }

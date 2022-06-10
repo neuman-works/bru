@@ -1,6 +1,6 @@
 var { find_app, find_fn, find_auth } = require('@src/apps');
 var { get_user_app_auth } = require('@src/_user');
-var { api_runner } = require('./engines/api');
+var { api_runner } = require('./engines/rest');
 
 
 const runner = (app: String, fn: String) => {

@@ -2,6 +2,7 @@ import params from './_params';
 
 export default {
     "version": "0.0.1",
+    "type": "ACTION",
     "functions": {
         "getSpreadsheet": {
             "meta": {
