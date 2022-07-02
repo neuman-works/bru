@@ -1,8 +1,2 @@
-import { EAppType } from './types'
-import { IApp } from './interfaces'
-
-
-export {
-    EAppType,
-    IApp
-}
+export * from './types'
+export * from './interfaces'

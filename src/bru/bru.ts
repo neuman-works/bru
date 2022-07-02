@@ -1,32 +1,23 @@
-import { IApp } from './_types'
-const fs = require('fs')
+import { IAppSrc, IBru } from '@src/_types'
+import { App } from '@apps/index'
+import fs from 'fs'
 
-var bru: IApp;
-
-interface IBru {
-    apps: Function
-}
 
 export default class Bru implements IBru {
-    /*
-        @description: Takes credentials, variables etc. to initializes Bru & activate apps
-        @params: config_file: the location of the config file in the local filesystem
-        @returns: object with the initialization results
-    */
-    initialize(config_file: String) {
-        // fs.readFile(config_file);
-        // find all correspoding apps
-        // create new apps objects for each folder
-        bru.apps = [];
+    // TODO: async file streaming
+    constructor(configFile: string) {
+        const appConfig = JSON.parse(fs.readFileSync(configFile, 'utf-8'));
+
+        console.log(appConfig)
     }
 
 
-    /*
-        @description:
-        @params:
-        @returns:
-    */
-    apps() {
+    app(appName: string): IAppSrc {
+        return new App(appName);
+    }
+
+
+    apps(app: string) {
         return [];
     }
 }

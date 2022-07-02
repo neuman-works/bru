@@ -1,6 +1,5 @@
-import { fileDriverFactory } from './_drivers'
-import { Apps } from './apps'
+import App from './app'
 
-let useFileDriver = fileDriverFactory()
-
-export default new Apps(useFileDriver)
+export {
+    App
+}

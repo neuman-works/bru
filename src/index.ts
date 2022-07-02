@@ -2,8 +2,10 @@ require('dotenv').config()
 
 import 'module-alias/register'
 import dotenv from 'dotenv'
-import bru from './bru'
+import { Bru } from './bru'
 
 dotenv.config()
 
-export default bru
+export {
+    Bru
+}
