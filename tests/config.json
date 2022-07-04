@@ -1,7 +1,0 @@
-{
-    "google_sheets": {
-        "Client_ID": "824159988473-qk7hqgghgk9ot6nocn1isv8iiaj95990.apps.googleusercontent.com",
-        "Redirect_URI": "http://localhost:8080",
-        "State": "484a261a15899d07dcfb2acaa37ce43c46870065d7a5cd8681ca11082ec86eb0"
-    }
-}

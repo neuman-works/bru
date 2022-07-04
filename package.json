@@ -14,7 +14,7 @@
     "url": "git+https://github.com/jaisondavis/bru.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "jdavis79@asu.edu",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jaisondavis/bru/issues"
@@ -34,7 +34,7 @@
     "typescript": "^4.6.3"
   },
   "_moduleAliases": {
-    "@src": "dist/",
-    "@db": "db/"
+    "@src": "./src/",
+    "@apps": "./src/apps/"
   }
 }
