@@ -9,46 +9,46 @@ Here are some things yuo should know:
 
 
 
-    require('module-alias/register')
-    import sheets from '@apps/google_sheets'
-    
-    const credentials = {
-        client_id: "YOUR-CLIENT-ID",
-        client_secret: "YOUR-CLIENT-SECRET",
-        state: "STATE-ID-YOU-GENERATE",
-        host: 'http://localhost', port: 8080, path: 'google_sheets_auth',
-        response_type: 'code', access_type: 'offline'
-    }
-    
-    const params = {
-        sheet_id: 'YOUR-SHEET-ID'
-    }
-    
-    const auth = {
-        access_token: 'SAVED-ACCESS-TOKEN'
-    }
-    
-    sheets.isAuthorized
-        .run({ ...credentials, ...auth })
-        .then((isAuthorized) => {
-            if (isAuthorized) {
-                sheets.getSpreadsheet.run({
-                    access_token: auth.access_token,
-                    sheet_id: params.sheet_id
-                })
-                .then((res) => console.log(res))
-            } else {
-                console.log("User auth link: ", sheets.getAuthLink.run(credentials))
-    
-                sheets
-                    .authorize(credentials)
-                    .then(async (auth: any) => {
-                        console.log("Auth codes here (save them):", auth)
-                        sheets.getSpreadsheet.run({
-                            access_token: auth.access_token,
-                            sheet_id: params.sheet_id
-                        })
-                        .then((sheet) => console.log(sheet))
+        require('module-alias/register')
+        import sheets from '@apps/google_sheets'
+
+        const credentials = {
+            client_id: "YOUR-CLIENT-ID",
+            client_secret: "YOUR-CLIENT-SECRET",
+            state: "STATE-ID-YOU-GENERATE",
+            host: 'http://localhost', port: 8080, path: 'google_sheets_auth',
+            response_type: 'code', access_type: 'offline'
+        }
+
+        const params = {
+            sheet_id: 'YOUR-SHEET-ID'
+        }
+
+        const auth = {
+            access_token: 'SAVED-ACCESS-TOKEN'
+        }
+
+        sheets.isAuthorized
+            .run({ ...credentials, ...auth })
+            .then((isAuthorized) => {
+                if (isAuthorized) {
+                    sheets.getSpreadsheet.run({
+                        access_token: auth.access_token,
+                        sheet_id: params.sheet_id
                     })
-            }
-        })
+                    .then((res) => console.log(res))
+                } else {
+                    console.log("User auth link: ", sheets.getAuthLink.run(credentials))
+
+                    sheets
+                        .authorize(credentials)
+                        .then(async (auth: any) => {
+                            console.log("Auth codes here (save them):", auth)
+                            sheets.getSpreadsheet.run({
+                                access_token: auth.access_token,
+                                sheet_id: params.sheet_id
+                            })
+                            .then((sheet) => console.log(sheet))
+                        })
+                }
+            })
