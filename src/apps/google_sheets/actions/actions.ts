@@ -1,4 +1,4 @@
-import params from '../params';
+import { IGetSheet } from '../@types';
 import axios from 'axios'
 import { endpoints } from '../constants';
 
@@ -10,18 +10,13 @@ export default {
         version: "0.0.1",
         type: "ACTION",
         auth_required: true,
-        params: [
-            params.sheet_id,
-            params.access_token
-        ],
-        async run(args: any): Promise<any> {
+        async run(args: IGetSheet): Promise<any> {
             const request = {
                 headers: {
                     Authorization: `Bearer ${args.access_token}`
                 },
                 params: {
-                    includeGridData: true,
-                    key: args.key
+                    includeGridData: true
                 }
             }
             var res, err

@@ -2,12 +2,12 @@ import params from './params'
 import { endpoints, scope } from './constants'
 import { EAppType } from '@src/@types'
 import axios from 'axios'
-import { IAuthLink, IAuthCheck } from './@types'
+import { IAuth, IAuthLink, IAuthCheck, IAccessToken } from './@types'
 const server = require('server')
 const { get } = server.router
 
 
-const authorize = (args: any) => new Promise(async (resolve, reject) => {
+const authorize = (args: IAuth) => new Promise(async (resolve, reject) => {
     const redirect_uri = 
         args.redirect_uri || `${args.host}:${args.port}/${args.path}`
     
@@ -35,7 +35,6 @@ const isAuthorized = {
     name: "Is Authorized",
     description: "Check if Authorized",
     type: EAppType.AUTHORIZATION,
-    params: [],
     async run(args: IAuthCheck): Promise<boolean> {
         var result = false
         
@@ -53,11 +52,6 @@ const getAuthLink = {
     description: "",
     version: "0.0.1",
     type: EAppType.AUTHORIZATION,
-    params: [
-        params.client_id,
-        params.redirect_uri,
-        params.state
-    ],
     run(args: IAuthLink): string {
         const redirect_uri = 
             args.redirect_uri || `${args.host}:${args.port}/${args.path}`
@@ -80,13 +74,7 @@ const getAccessToken = {
     description: "",
     version: "0.0.1",
     type: EAppType.AUTHORIZATION,
-    params: [
-        params.client_id,
-        params.redirect_uri,
-        params.client_secret,
-        params.code
-    ],
-    async run(args: any): Promise<any> {
+    async run(args: IAccessToken): Promise<any> {
         var res, err = null;
 
         await axios

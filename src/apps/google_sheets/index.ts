@@ -13,6 +13,7 @@ const app = {
     bru_version: "0.0.1",
     integration_type: "api",
     auth_type: "LT_TOKEN_REFRESH",
+    auth: Object.keys(auth),
     actions: Object.keys(actions),
     triggers: Object.keys(triggers),
     credentials: {},
