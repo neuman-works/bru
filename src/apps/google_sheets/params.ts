@@ -1,4 +1,4 @@
-import { constants } from "./constants"
+import { scope } from "./constants"
 
 
 export default {
@@ -12,7 +12,7 @@ export default {
         type: "enum", /* enum(uration) as in pick from one the values in $.meta.options */
         meta: {
             "options": [
-                constants.scope.spreadsheets
+                scope.spreadsheets
             ]
         }
     },

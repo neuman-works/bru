@@ -1,6 +1,6 @@
 import actions from './actions/actions'
 import { triggers } from './triggers/triggers'
-import * as methods from './auth'
+import * as auth from './auth'
 
 
 const app = {
@@ -15,17 +15,15 @@ const app = {
     auth_type: "LT_TOKEN_REFRESH",
     actions: Object.keys(actions),
     triggers: Object.keys(triggers),
-    methods: {
-        ...methods,
-        ...actions,
-        ...triggers
-    },
     credentials: {},
     tags: [
         "google", 
         "google sheets", 
         "spreadsheets"
-    ]
+    ],
+    ...auth,
+    ...actions,
+    ...triggers
 }
 
 export default app

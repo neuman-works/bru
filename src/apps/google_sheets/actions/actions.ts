@@ -1,5 +1,6 @@
 import params from '../params';
 import axios from 'axios'
+import { endpoints } from '../constants';
 
 
 export default {
@@ -26,7 +27,7 @@ export default {
             var res, err
 
             await axios.get(
-                `https://sheets.googleapis.com/v4/spreadsheets/${args.sheet_id}`, 
+                endpoints.api + endpoints.path + args.sheet_id, 
                 request
             )
             .then((response) => res = response.data)
